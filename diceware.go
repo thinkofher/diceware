@@ -5,8 +5,6 @@ import (
 	"math/big"
 	"strconv"
 	"strings"
-
-	_ "embed"
 )
 
 // Generate generates diceware password with given number
