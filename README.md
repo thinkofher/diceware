@@ -52,10 +52,20 @@ It is simple as:
     $ diceware
     QuackLassoMatadorAppealingMobilize
 
-If you want to have more or less words in your password, just pass number of words as the first argument.
+If you want to have more or less words in your password, just pass number of words to `-words` flag.
 
-    $ diceware 8
+    $ diceware -words 8
     ClericalCrankUnmanagedUnthawedEndnoteGigglingUncouthNativity
+
+You can generate more than one password with `-passwords` flag.
+
+    $ diceware -words 8 -passwords 3
+    RescuerStatisticLungHelperGarlicBruteClothesOutdoors
+    CranberryExpansionHuddlingStopperPrecinctExtraditeAnimatingCarless
+    XeroxIguanaBaffleRockstarBossMumpsUnfailingRecognize
+
+You can use `-w` and `-p` shorthands for `-words` and `-passwords` flags and `-help` flag to output
+above information in more simpler way.
 
 That's all folks! Thank you for your attention.
 

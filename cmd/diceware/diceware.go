@@ -1,25 +1,30 @@
 package main
 
 import (
+	"flag"
 	"fmt"
-	"os"
-	"strconv"
 
 	"github.com/thinkofher/diceware"
 )
 
+const shorthand = " (shorthand)"
+
+var (
+	wordsNum   = 5
+	wordsUsage = "number of words in single password"
+
+	passwordsNum   = 1
+	passwordsUsage = "number of passwords to generate"
+)
+
 func main() {
-	wordsNum := func() int {
-		if len(os.Args) < 2 {
-			return 5
-		}
+	flag.IntVar(&wordsNum, "words", 5, wordsUsage)
+	flag.IntVar(&wordsNum, "w", 5, wordsUsage+shorthand)
+	flag.IntVar(&passwordsNum, "passwords", 1, passwordsUsage)
+	flag.IntVar(&passwordsNum, "p", 1, passwordsUsage+shorthand)
+	flag.Parse()
 
-		res, err := strconv.Atoi(os.Args[1])
-		if err != nil {
-			return 5
-		}
-
-		return res
-	}()
-	fmt.Println(diceware.Generate(wordsNum))
+	for i := 0; i < passwordsNum; i++ {
+		fmt.Println(diceware.Generate(wordsNum))
+	}
 }
